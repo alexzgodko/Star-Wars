@@ -1,0 +1,2 @@
+# requrements are used by pip to install the dependencies
+pygame==2.6.1
