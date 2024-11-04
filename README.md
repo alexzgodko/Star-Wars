@@ -1,10 +1,11 @@
 # Игра стрелялка "Star Wars"
 ## Как запустить игру?
 1. `git clone --branch development git@github.com:alexzgodko/Star-Wars.git`
-2. `python -m venv env`
-3. `source env/bin/activate`
-4. `pip install -r requirements.txt`
-5. `python3 main.py`
+2. `cd Star-Wars`
+3. `python -m venv env`
+4. `source env/bin/activate`
+5. `pip install -r requirements.txt`
+6. `python3 main.py`
 
 ## Описание
 Космический корабль расположен внизу экрана и управляется стрелками влево/вправо.
