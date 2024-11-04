@@ -1,7 +1,7 @@
 from os import path
 
-img_dir = path.join(path.dirname(__file__), 'img')
-snd_dir = path.join(path.dirname(__file__), 'snd')
+img_dir = path.join(path.dirname(__file__), 'src/img')
+snd_dir = path.join(path.dirname(__file__), 'src/snd')
 
 # screen parameters
 WIDTH = 500

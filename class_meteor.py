@@ -6,7 +6,7 @@ import pygame
 class Meteor(pygame.sprite.Sprite):
     """Class representing a meteor."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Creates a meteor.
 
         Args:
@@ -29,7 +29,7 @@ class Meteor(pygame.sprite.Sprite):
         self.rot_speed = random.randrange(-8, 8)
         self.last_update = pygame.time.get_ticks()
 
-    def rotate(self):
+    def rotate(self) -> None:
         """Rotates the meteor image depending on the elapsed time.
 
         Args:
@@ -48,7 +48,7 @@ class Meteor(pygame.sprite.Sprite):
             self.rect = self.image.get_rect()
             self.rect.center = old_center
 
-    def update(self):
+    def update(self) -> None:
         """Updates the meteor's position along the x and y axes.
             When the asteroid goes beyond the screen border, 
             we put it back on top and send it flying down.

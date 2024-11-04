@@ -1,11 +1,13 @@
 import pygame
 from constants import *
+from typing import Literal
+import vars
 
 
 class Explosion(pygame.sprite.Sprite):
     """Class representing an animation of explosion when the bullet collides with the meteor."""
 
-    def __init__(self, center, size, explosion_anim):
+    def __init__(self, center: float, size: Literal['lg', 'sm'], explosion_anim: dict) -> None:
         """Create the explosion.
 
         Args:
@@ -26,5 +28,24 @@ class Explosion(pygame.sprite.Sprite):
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 50
 
-    def update(self):
-        pass  # implementation is in main
+    def update(self) -> None:
+        """Displays animation frames sequentially based on elapsed time.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+
+        now = pygame.time.get_ticks()
+        if now - self.last_update > self.frame_rate:
+            self.last_update = now
+            self.frame += 1
+            if self.frame == len(vars.explosion_anim[self.size]):
+                self.kill()
+            else:
+                center = self.rect.center
+                self.image = vars.explosion_anim[self.size][self.frame]
+                self.rect = self.image.get_rect()
+                self.rect.center = center

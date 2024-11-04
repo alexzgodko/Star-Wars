@@ -5,7 +5,7 @@ from constants import *
 class Bullet(pygame.sprite.Sprite):
     """Class representing the bullet that the ship shoots."""
 
-    def __init__(self, x, y):
+    def __init__(self, x: float, y: float) -> None:
         """Create a bullet.
 
         Args:
@@ -21,7 +21,7 @@ class Bullet(pygame.sprite.Sprite):
         self.rect.centerx = x
         self.speedy = -10
 
-    def update(self):
+    def update(self) -> None:
         """Updates bullet position adding y-axes speed.
 
         Args:

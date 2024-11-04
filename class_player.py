@@ -1,11 +1,13 @@
 import pygame
 from constants import *
+from class_bullet import Bullet
+import vars
 
 
 class Player(pygame.sprite.Sprite):
     """Class representing a spaceship in the bottom of the screen."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Create a ship in the center at the bottom of the screen. 
            It can move left to right of the screen and shoot bullets at asteroids.
 
@@ -25,7 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.shield = 100
         self.last_update = pygame.time.get_ticks()
 
-    def update(self):
+    def update(self) -> None:
         """Updates the asteroid's x-position depending on which key is pressed.
 
         Args:
@@ -47,5 +49,21 @@ class Player(pygame.sprite.Sprite):
         if self.rect.left < 0:
             self.rect.left = 0
 
-    def shoot(self):
-        pass  # implementatin is in main
+    def shoot(self) -> None:
+        # pass  # implementatin is in main
+        """Creates a bullet. There must be a minimum amount of time between shots.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+
+        now = pygame.time.get_ticks()
+        if now - self.last_update > 300:
+            self.last_update = now
+            bullet = Bullet(self.rect.centerx, self.rect.top)
+            vars.all_sprites.add(bullet)
+            vars.bullets.add(bullet)
+            vars.shoot_sound.play()
